@@ -1,0 +1,312 @@
+{
+  "id": "dayan_main",
+  "title": "大衍之局",
+  "summary": "百年前天机阁覆灭，留下一句谶语：血月三现，九兵认主，九鼎易主。三十年前第一次血月，江湖死了三万人；如今赤星再近，血月将三度临空。每一个初入江湖的人都以为自己只是路过，直到发现自己早已在棋局中央。",
+  "acts": [
+    {
+      "id": "act1",
+      "title": "第一幕·江湖初入",
+      "years": "承平二十三年—二十四年",
+      "summary": "赤星犯月，江湖风声鹤唳。九宗各怀心思，镇武司收紧罗网，而初出茅庐的你，正撞进这场大戏的开场。",
+      "beats": [
+        {
+          "id": "b01",
+          "year": 23,
+          "season": 0,
+          "title": "血月初现",
+          "text": "承平二十三年春，天现赤月，三夜不退。钦天监称「荧惑守心」，江湖人却都想起那句谶语：血月三现，九兵认主，九鼎易主。九宗连夜遣弟子下山，镇武司封了九门。",
+          "fixed": true,
+          "regions": ["zhongzhou", "taixu", "songyue", "xuanyin", "saibei", "jiangnan", "baicao", "longquan"],
+          "stakes": "天下人第一次确信：谶语不是吓人的。",
+          "flags": ["blood_moon_1"]
+        },
+        {
+          "id": "b02",
+          "year": 23,
+          "season": 1,
+          "title": "洛阳试剑",
+          "text": "洛阳试剑大会，九宗年轻弟子较技。青城剑派掌门陆惊鸿连败七人，一战成名。太虚剑宗的真传弟子却蹊跷缺席，有人说他们在剑冢里挖什么东西。",
+          "fixed": true,
+          "regions": ["zhongzhou", "taixu"],
+          "stakes": "陆惊鸿成为江湖新一代的门面，也成了所有人的靶子。",
+          "flags": ["shijian_23"]
+        },
+        {
+          "id": "b03",
+          "year": 23,
+          "season": 2,
+          "title": "镇武司清查",
+          "text": "裴玄以「私通魔教」为名，一夜查封江南七家镖局，抓走三百余人。刑讯之下，有人招出千机楼曾替血月教销赃。苏无咎照旧开门做生意，只在门口多挂了一盏白灯。",
+          "fixed": true,
+          "regions": ["zhongzhou", "jiangnan"],
+          "stakes": "朝廷与江湖的平衡开始倾斜。",
+          "flags": ["zhenwu_purge"]
+        },
+        {
+          "id": "b04",
+          "year": 23,
+          "season": 3,
+          "title": "断水现世",
+          "text": "塞北沙暴过后，雁回城外露出一座古墓，墓中一柄断水刀自行出鞘。天刀门与马帮血战三日，独孤烈以一人一刀守住墓门，刀身上的缺口又深了一分。",
+          "fixed": true,
+          "regions": ["saibei"],
+          "stakes": "九兵现世的第一件，江湖确信神兵真的存在。",
+          "flags": ["duanshui_found"]
+        },
+        {
+          "id": "b05",
+          "year": 24,
+          "season": 0,
+          "title": "江南春瘟",
+          "text": "江南大疫，三日死千人。药王谷开谷施药，沈九针亲自下山，却在疫区发现有人故意投毒——毒方里有一味只有药王谷才有的引脉散。",
+          "fixed": true,
+          "regions": ["jiangnan", "baicao"],
+          "stakes": "药王谷内部有内鬼，三十年前的旧案浮出水面。",
+          "flags": ["plague_24"]
+        },
+        {
+          "id": "b06",
+          "year": 24,
+          "season": 1,
+          "title": "无相悬赏",
+          "text": "有人以黄金万两，向无相楼买太虚剑宗一位长老的首级。无名接了单，却在太虚山下站了一夜，没有上山。第二天，她把定金原封退回，江湖哗然。",
+          "fixed": true,
+          "regions": ["jiangnan", "taixu"],
+          "stakes": "有人要动太虚剑宗，且出得起价。",
+          "flags": ["wuxiang_order"]
+        },
+        {
+          "id": "b07",
+          "year": 24,
+          "season": 2,
+          "title": "天机残卷",
+          "text": "千机楼拍卖一卷天机阁残页，起价十万两。残页上只有半句话：「九兵非兵，乃九钥；九钥齐，门自开。」九宗、朝廷、血月教的人同时出现在拍卖场。",
+          "fixed": true,
+          "regions": ["jiangnan"],
+          "stakes": "九兵与九鼎的关系第一次被摆上台面。",
+          "flags": ["jiubing_key"]
+        },
+        {
+          "id": "b08",
+          "year": 24,
+          "season": 3,
+          "title": "血月再临",
+          "text": "第二次血月当空。镇武司副使暴毙于衙中，七窍流血，正是化血神功的痕迹。裴玄封锁京城，全城搜捕血月教众，一夜之间抓了两千人，杀了三百。",
+          "fixed": true,
+          "regions": ["zhongzhou", "xiyu"],
+          "stakes": "血月教的手已经伸进朝廷。",
+          "flags": ["blood_moon_2"]
+        }
+      ]
+    },
+    {
+      "id": "act2",
+      "title": "第二幕·风雨欲来",
+      "years": "承平二十五年",
+      "summary": "神兵一件件醒来，九宗各自动了心思。有人想守，有人想夺，有人想用它们开一扇不该开的门。",
+      "beats": [
+        {
+          "id": "b09",
+          "year": 25,
+          "season": 0,
+          "title": "九兵录现",
+          "text": "半部《九兵录》在江湖流传，其中一页写着：「兵有灵，认主以命，主死兵眠。」一时间，无数人开始用自己的命去试神兵。太虚剑宗封山，铸剑山庄闭炉。",
+          "fixed": true,
+          "regions": ["taixu", "longquan", "jiangnan"],
+          "stakes": "神兵认主的代价被公开，江湖开始死人。",
+          "flags": ["jiubinglu"]
+        },
+        {
+          "id": "b10",
+          "year": 25,
+          "season": 1,
+          "title": "太阿自鸣",
+          "text": "太虚山剑冢夜半剑鸣，太阿剑自行出鞘三寸。玄真子入冢镇压，出冢时白须尽染血色。同一夜，清虚真人以「护宗」为名，接管了剑冢防务。",
+          "fixed": true,
+          "regions": ["taixu"],
+          "stakes": "太虚剑宗内部生变，剑冢落入清虚之手。",
+          "flags": ["tai_a_stir"]
+        },
+        {
+          "id": "b11",
+          "year": 25,
+          "season": 2,
+          "title": "断水之殇",
+          "text": "独孤烈在雁回城外独战血月教三百血卫，断水刀饮血至鸣。他活了下来，刀却裂了一道口子。他对身边人说了句：「刀老了，我也老了。」",
+          "fixed": true,
+          "regions": ["saibei"],
+          "stakes": "塞北防线摇摇欲坠，天刀门后继无人。",
+          "flags": ["duanshui_crack"]
+        },
+        {
+          "id": "b12",
+          "year": 25,
+          "season": 3,
+          "title": "陨星落龙泉",
+          "text": "一颗赤星坠于龙泉，砸穿剑池，露出深埋的陨铁。越无锋在坑边站了三天三夜，回庄后闭门不出，只让人每日送三百斤炭。",
+          "fixed": true,
+          "regions": ["longquan"],
+          "stakes": "第十兵「问天」开始铸造。",
+          "flags": ["xingyun"]
+        }
+      ]
+    },
+    {
+      "id": "act3",
+      "title": "第三幕·血月当空",
+      "years": "承平二十六年",
+      "summary": "蛰伏三十年的血月教举旗复起，正魔大战一触即发。九宗会盟，各怀鬼胎；而真正的棋手，仍坐在太虚山的云雾里。",
+      "beats": [
+        {
+          "id": "b13",
+          "year": 26,
+          "season": 0,
+          "title": "血月举旗",
+          "text": "墨千山于西域总坛祭旗，血月教十万教众出大漠，三日内连破塞北三城。九幽刀出世，刀锋所指，城头守军七窍流血而亡。",
+          "fixed": true,
+          "regions": ["xiyu", "saibei", "zhongzhou"],
+          "stakes": "正魔大战爆发，天下大乱。",
+          "flags": ["war_start"]
+        },
+        {
+          "id": "b14",
+          "year": 26,
+          "season": 1,
+          "title": "太虚会盟",
+          "text": "九宗会盟太虚山，共推玄真子为盟主。玄真子当众咳血，仍接下盟主令。清虚真人代掌盟主印，调度九宗人马——这是太虚剑宗百年来权力最集中的一个夏天。",
+          "fixed": true,
+          "regions": ["taixu"],
+          "stakes": "正道联军成形，实权却落在清虚手里。",
+          "flags": ["alliance"]
+        },
+        {
+          "id": "b15",
+          "year": 26,
+          "season": 2,
+          "title": "药王谷之劫",
+          "text": "血月教奇袭百草涧，掳走沈九针，要他用九针替教主续命。沈流萤冒死送出消息，谷中那桩三十年前的旧案，也在混乱中被翻了出来。",
+          "fixed": true,
+          "regions": ["baicao", "xiyu"],
+          "stakes": "唯一能解化血神功的人落入魔教之手。",
+          "flags": ["yaowang_raid"]
+        },
+        {
+          "id": "b16",
+          "year": 26,
+          "season": 3,
+          "title": "第三次血月",
+          "text": "血月三度临空，赤光如血。九柄神兵同时自鸣，九州龙脉震动，京城皇陵塌了一角。钦天监监正当夜自尽，遗书只有四个字：「门要开了。」",
+          "fixed": true,
+          "regions": ["zhongzhou", "xiyu", "longquan", "taixu"],
+          "stakes": "谶语应验，九鼎之门即将开启。",
+          "flags": ["blood_moon_3", "gate_soon"]
+        }
+      ]
+    },
+    {
+      "id": "act4",
+      "title": "第四幕·天下棋局",
+      "years": "承平二十七年",
+      "summary": "血月三现之后，所有人都看见了棋盘。执棋人落子，九宗分裂，皇城流血，而龙泉的炉火，烧到了最后一步。",
+      "beats": [
+        {
+          "id": "b17",
+          "year": 27,
+          "season": 0,
+          "title": "九鼎真相",
+          "text": "天机谶的后半句被解出：「九鼎镇龙脉，九兵为钥；门开之日，旧魂归来。」百年前天机阁不是被灭，是自愿封门——他们用九鼎封住了兵主之魂，也封住了自己的名字。",
+          "fixed": true,
+          "regions": ["jiangnan", "taixu", "zhongzhou"],
+          "stakes": "所有人明白：所谓神兵认主，是一场百年骗局的开锁仪式。",
+          "flags": ["truth_jiuding"]
+        },
+        {
+          "id": "b18",
+          "year": 27,
+          "season": 1,
+          "title": "执棋人现",
+          "text": "玄真子于剑冢第九层取出祖师遗书，当众指认清虚真人通魔。清虚不辩，只笑，笑完摘下发冠：「师兄，你守了四十年的约，我拆了四十年。你猜，谁赢了？」太虚剑宗当夜分裂。",
+          "fixed": true,
+          "regions": ["taixu"],
+          "stakes": "幕后之人现身，正道中枢崩裂。",
+          "flags": ["qingxu_revealed"],
+          "reveal": "qingxu"
+        },
+        {
+          "id": "b19",
+          "year": 27,
+          "season": 2,
+          "title": "京城之变",
+          "text": "镇武司副使通敌，京城九门一夜三易其主。裴玄持假龙渊守朱雀门，血战至天明。他赢了，却在战后把剑扔进护城河——那一夜之后，江湖都知道龙渊是假的。",
+          "fixed": true,
+          "regions": ["zhongzhou"],
+          "stakes": "朝廷威权崩塌，天下彻底失序。",
+          "flags": ["capital_coup", "longyuan_fake"]
+        },
+        {
+          "id": "b20",
+          "year": 27,
+          "season": 3,
+          "title": "龙泉最后一炉",
+          "text": "越无锋开炉铸最后一刀。剑胚成，星痕亮，只差开锋之血。越青鸾跪在炉前三天三夜，求父亲住手；越无锋只说了一句：「爹这辈子，就想铸成一柄问得出的剑。」",
+          "fixed": true,
+          "regions": ["longquan"],
+          "stakes": "问天将成，以铸剑者之命为价。",
+          "flags": ["wentian_ready"]
+        }
+      ]
+    },
+    {
+      "id": "act5",
+      "title": "第五幕·命数",
+      "years": "承平二十八年",
+      "summary": "九兵归位，九鼎将开。有人要开门迎旧魂，有人要以剑斩命数，有人只想带一个人活着走出这场雪。",
+      "beats": [
+        {
+          "id": "b21",
+          "year": 28,
+          "season": 0,
+          "title": "九兵归位",
+          "text": "九柄神兵陆续现世，各归其主，也各索其命。持兵者夜夜梦见同一座门，门后有声音在数：「还差一个。」江湖开始有人自尽，只求不再听见。",
+          "fixed": true,
+          "regions": ["taixu", "saibei", "longquan", "xiyu", "zhongzhou"],
+          "stakes": "神兵反噬，天下人心崩坏。",
+          "flags": ["nine_weapons"]
+        },
+        {
+          "id": "b22",
+          "year": 28,
+          "season": 1,
+          "title": "问天出世",
+          "text": "越无锋以心头血开锋，问天剑成，剑鸣三日不止。铸剑山庄满门白衣。越青鸾抱着父亲的骨灰，把剑交到一个人的手里——那个人是谁，江湖传了十年也没传明白。",
+          "fixed": true,
+          "regions": ["longquan"],
+          "stakes": "第十兵现世，命数可斩。",
+          "flags": ["wentian_born"]
+        },
+        {
+          "id": "b23",
+          "year": 28,
+          "season": 2,
+          "title": "皇陵开门",
+          "text": "清虚以九兵为钥，开启皇陵下的九鼎之门。兵主之魂将醒，龙脉将断。正道残部、朝廷残军、血月教余众，齐聚皇陵之外——这是百年来第一次，所有人站在同一边，又各怀鬼胎。",
+          "fixed": true,
+          "regions": ["zhongzhou"],
+          "stakes": "最终决战，天下命数在此一战。",
+          "flags": ["final_battle"]
+        },
+        {
+          "id": "b24",
+          "year": 28,
+          "season": 3,
+          "title": "大衍终局",
+          "text": "门开，或者门闭。剑落，或者剑折。有人问天，有人问心，有人什么也没问，只是把剑插进雪里，转身走了。史书只留下一句：承平二十八年冬，天下大雪，江湖换了人间。",
+          "fixed": true,
+          "regions": ["zhongzhou", "taixu", "longquan", "saibei", "jiangnan", "baicao", "xiyu", "songyue", "xuanyin"],
+          "stakes": "结局判定。",
+          "flags": ["finale"]
+        }
+      ]
+    }
+  ]
+}

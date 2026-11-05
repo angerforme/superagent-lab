@@ -1,0 +1,164 @@
+{
+  "surnames": ["沈", "顾", "萧", "陆", "谢", "苏", "叶", "楚", "江", "秦", "韩", "温", "裴", "卫", "宋", "程", "宁", "洛", "封", "关", "岳", "燕", "柳", "方", "林", "白", "云", "段", "司徒", "欧阳"],
+  "givenNames": {
+    "male": ["长风", "惊鸿", "无咎", "承影", "照野", "寒山", "听澜", "子夜", "既明", "行舟", "守拙", "断川", "青崖", "问津", "拾光", "怀瑾", "渡雪", "长歌", "临渊", "望舒"],
+    "female": ["红绡", "流萤", "青鸾", "挽月", "拾星", "照雪", "知微", "扶苏", "南枝", "听雨", "问琴", "素问", "清欢", "渌水", "洛神", "含章", "半夏", "疏影", "晚照", "青梧"]
+  },
+  "backgrounds": [
+    {
+      "id": "wulin_family",
+      "name": "武林世家",
+      "desc": "家中三代习武，院墙上还留着祖父的刀痕。你从小就被告知：江湖不是去处，是归处。",
+      "mods": { "gengu": 6, "wuxing": 2, "fuyuan": 2, "xinxing": 0, "meili": 2 },
+      "money": 200,
+      "arts": ["liuyun_jianfa"],
+      "seeds": ["你是家中最不成器的一个，也是最不肯认命的一个。"]
+    },
+    {
+      "id": "orphan",
+      "name": "寒门孤儿",
+      "desc": "你在破庙里长大，靠讨饭和替人跑腿活到十六岁。你不知道自己姓什么，名字是庙里的老和尚给的。",
+      "mods": { "gengu": 2, "wuxing": 4, "fuyuan": -3, "xinxing": 8, "meili": 0 },
+      "money": 10,
+      "arts": ["liuyun_shenfa"],
+      "seeds": ["你比谁都知道，饿是什么滋味。"]
+    },
+    {
+      "id": "medicine_family",
+      "name": "药商之子",
+      "desc": "家里的药铺开了四十年，你八岁能辨百草，十岁敢给人开方。父亲说，学医救不了江湖，但能让你活着看江湖。",
+      "mods": { "gengu": 0, "wuxing": 6, "fuyuan": 2, "xinxing": 2, "meili": 2 },
+      "money": 150,
+      "arts": ["huichun_shu"],
+      "seeds": ["你见过太多人死，所以不太怕死，也不太敢死。"]
+    },
+    {
+      "id": "frontier_orphan",
+      "name": "边军遗孤",
+      "desc": "父亲死在雁回城头，尸骨没能运回来。你跟着败兵一路南下，在风沙里学会了握刀。",
+      "mods": { "gengu": 8, "wuxing": 0, "fuyuan": 0, "xinxing": 4, "meili": -2 },
+      "money": 30,
+      "region": "saibei",
+      "arts": ["tiebu_shan"],
+      "seeds": ["你记得父亲说过，刀是用来挡在别人前面的。"]
+    },
+    {
+      "id": "scholar",
+      "name": "书香门第",
+      "desc": "家有藏书三千卷，你读过经史，也偷偷读过被父亲藏在阁楼上的江湖杂记。你提笔能写策论，提剑却连鸡都没杀过。",
+      "mods": { "gengu": -2, "wuxing": 10, "fuyuan": 2, "xinxing": 2, "meili": 4 },
+      "money": 120,
+      "arts": [],
+      "seeds": ["你一直想看看，书上写的江湖，是不是真的。"]
+    },
+    {
+      "id": "escort",
+      "name": "镖师之子",
+      "desc": "父亲押了半辈子镖，只丢过一次货，那次丢的是他自己的命。你接了他的刀，也接了他没走完的路。",
+      "mods": { "gengu": 4, "wuxing": 2, "fuyuan": 2, "xinxing": 2, "meili": 0 },
+      "money": 80,
+      "arts": ["liuyun_shenfa", "tiebu_shan"],
+      "seeds": ["父亲说，走镖最重要的不是打赢，是活着把货送到。"]
+    },
+    {
+      "id": "forge_apprentice",
+      "name": "铸剑山庄学徒",
+      "desc": "你在龙泉长大，替铸师拉过十七年风箱。你的手掌比同龄人厚，耳朵比同龄人聋——炉火声太大，听不清别人说话。",
+      "mods": { "gengu": 6, "wuxing": 2, "fuyuan": 0, "xinxing": 4, "meili": -2 },
+      "money": 50,
+      "region": "longquan",
+      "arts": ["cuihuo_xinfa"],
+      "seeds": ["你见过最好的剑，也见过铸剑的人怎么死。"]
+    },
+    {
+      "id": "qianji_dropout",
+      "name": "千机楼弃徒",
+      "desc": "你在千机楼学过三年机关，因为偷看了一封信被逐出门墙。楼主说：你太会问问题，不适合做生意。",
+      "mods": { "gengu": 0, "wuxing": 8, "fuyuan": 2, "xinxing": 0, "meili": 2 },
+      "money": 60,
+      "region": "jiangnan",
+      "arts": ["suoying_bu"],
+      "seeds": ["你记得那封信上的四个字：血月，九鼎。"]
+    },
+    {
+      "id": "beggar",
+      "name": "街头乞丐",
+      "desc": "你在洛阳街头长大，睡过城门洞，也睡过死人堆。你没什么本事，就是命硬，怎么都死不了。",
+      "mods": { "gengu": 2, "wuxing": 0, "fuyuan": 10, "xinxing": 6, "meili": 0 },
+      "money": 5,
+      "arts": [],
+      "seeds": ["你信奉一句话：活着就有翻本的机会。"]
+    },
+    {
+      "id": "temple_foundling",
+      "name": "禅院弃婴",
+      "desc": "你在菩提禅院的塔林里被捡到，跟着武僧扫了十六年落叶。苦禅方丈说你有佛缘，你却总想着下山。",
+      "mods": { "gengu": 4, "wuxing": 2, "fuyuan": 2, "xinxing": 8, "meili": 0 },
+      "money": 20,
+      "region": "songyue",
+      "arts": ["tuna_bian", "tiebu_shan"],
+      "seeds": ["你扫过一千日的落叶，也听过一千日的钟声。"]
+    },
+    {
+      "id": "demon_blood",
+      "name": "魔教后裔",
+      "desc": "你的父母是血月教的血奴，死在你十岁那年。你身上有一道洗不掉的血纹，它每逢月圆就会发烫。",
+      "mods": { "gengu": 6, "wuxing": 2, "fuyuan": -2, "xinxing": -2, "meili": 2 },
+      "money": 0,
+      "region": "xiyu",
+      "arts": ["xueying_bu"],
+      "karma": -20,
+      "seeds": ["你恨血月教，可你的血记得它。"]
+    },
+    {
+      "id": "fallen_royal",
+      "name": "前朝遗孤",
+      "desc": "你从小被一个瞎眼老仆养大，他临死前给了你半块玉佩，说：你是萧家的后人，这天下本该姓萧。你没信，但你留着玉佩。",
+      "mods": { "gengu": 0, "wuxing": 6, "fuyuan": 6, "xinxing": 2, "meili": 4 },
+      "money": 40,
+      "region": "zhongzhou",
+      "arts": [],
+      "seeds": ["你不知道那块玉有什么用，只知道它很值钱。"]
+    }
+  ],
+  "talents": [
+    { "id": "shenli", "name": "天生神力", "desc": "力能扛鼎，根骨天成。", "mods": { "gengu": 8 } },
+    { "id": "memory", "name": "过目不忘", "desc": "看一遍就会，学什么都快。", "mods": { "wuxing": 8 } },
+    { "id": "lucky", "name": "福星高照", "desc": "霉运总在离你三步远的地方停住。", "mods": { "fuyuan": 8 } },
+    { "id": "calm", "name": "心如止水", "desc": "刀架在脖子上也不会慌。", "mods": { "xinxing": 8 } },
+    { "id": "beauty", "name": "面如冠玉", "desc": "走到哪里都有人愿意多听你说一句话。", "mods": { "meili": 8 } },
+    { "id": "prodigy", "name": "练武奇才", "desc": "别人练三年的，你三个月就懂。", "mods": { "wuxing": 4, "gengu": 4 }, "flags": ["art_gain"] },
+    { "id": "ironbone", "name": "铁骨铮铮", "desc": "骨头比常人硬三分，伤好得也快。", "mods": { "gengu": 4 }, "effects": { "hpMax": 40, "heal": 6 } },
+    { "id": "swordheart", "name": "剑心通明", "desc": "你听得出剑在说什么。", "mods": { "wuxing": 2, "xinxing": 4 }, "effects": { "atk": 8 } },
+    { "id": "hardlife", "name": "命硬", "desc": "阎王叫你三次，你都没应。", "flags": ["death_save"] },
+    { "id": "eavesdrop", "name": "听风", "desc": "你总能在对的时候出现在对的地方。", "mods": { "fuyuan": 4 }, "flags": ["encounter_up"] },
+    { "id": "hide", "name": "藏拙", "desc": "越不起眼，活得越久。", "mods": { "fuyuan": 2, "xinxing": 4 }, "effects": { "fameGain": -0.25 } },
+    { "id": "copper", "name": "铜皮铁骨", "desc": "别人打你，手疼的是别人。", "effects": { "def": 8 } },
+    { "id": "merchant", "name": "商贾之才", "desc": "你算账比练剑快。", "effects": { "moneyGain": 1.6 } },
+    { "id": "mooncurse", "name": "血月之咒", "desc": "月圆夜里你会做同一个梦，梦里有人叫你回家。", "mods": { "gengu": 6, "xinxing": -4 }, "karma": -15 },
+    { "id": "lonestar", "name": "天煞孤星", "desc": "与你亲近的人，命都不长。", "mods": { "gengu": 2 }, "effects": { "relationGain": -0.3, "atk": 6 } },
+    { "id": "keen", "name": "七窍玲珑", "desc": "你一眼能看出别人在想什么。", "mods": { "wuxing": 4, "meili": 4 } },
+    { "id": "expert", "name": "天生医骨", "desc": "你摸一下脉，就知道人还能活几天。", "mods": { "wuxing": 4 }, "effects": { "heal": 8 } },
+    { "id": "drunk", "name": "千杯不醉", "desc": "酒桌上没有你套不出来的话。", "mods": { "meili": 4, "xinxing": 2 } }
+  ],
+  "destinies": [
+    { "id": "jiangxing", "name": "将星", "hint": "算命先生说你眉间有杀气，是沙场上的人。", "mods": { "gengu": 3 }, "weights": { "duel": 1.4, "yueyue": 0.6 } },
+    { "id": "jiansu", "name": "剑宿", "hint": "算命先生说你这辈子会因一柄剑而生，也因一柄剑而死。", "mods": { "wuxing": 3 }, "weights": { "explore": 1.3, "taixu": 1.5 } },
+    { "id": "yixian", "name": "医仙", "hint": "算命先生说你手心有药香，见不得人死。", "mods": { "wuxing": 2, "xinxing": 2 }, "weights": { "heal": 1.5, "yaowang": 1.6 } },
+    { "id": "motai", "name": "魔胎", "hint": "算命先生看了你一眼就不肯再说，只收了半价。", "mods": { "gengu": 4 }, "weights": { "xueyue": 1.6, "duel": 1.2 }, "karma": -10 },
+    { "id": "fugui", "name": "富贵", "hint": "算命先生说你命里带财，可惜留不住。", "mods": { "fuyuan": 4 }, "weights": { "trade": 1.5, "qianji": 1.3 } },
+    { "id": "piaobo", "name": "漂泊", "hint": "算命先生说你没有根，走到哪儿都是客。", "mods": { "fuyuan": 2, "xinxing": 2 }, "weights": { "roam": 1.6 } },
+    { "id": "chiqing", "name": "痴情", "hint": "算命先生说你这辈子会为一个不值得的人做一件值得的事。", "mods": { "meili": 4 }, "weights": { "relation": 1.5 } },
+    { "id": "wuming", "name": "无名", "hint": "算命先生说你命格太轻，看不清。", "mods": { "fuyuan": -1 }, "weights": {} }
+  ],
+  "portraits": [
+    "眉眼清冷，像雪后初晴的山。",
+    "笑起来有梨涡，看着不太像江湖人。",
+    "左手虎口有一层薄茧，是常年握兵刃磨出来的。",
+    "身形偏瘦，站在风里像一竿竹。",
+    "眼神很沉，不像十六岁的人。",
+    "眉骨很高，看人时总像在打量。",
+    "皮肤很白，指尖却带着药味。",
+    "一身旧衣洗得发白，脊背挺得很直。"
+  ]
+}
