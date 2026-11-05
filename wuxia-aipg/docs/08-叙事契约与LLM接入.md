@@ -54,15 +54,47 @@
 
 ## 五、接入方式
 
-兼容任何 OpenAI Chat Completions 接口：
+### 1. 配置文件（推荐）
+
+复制模板并填入密钥：
 
 ```bash
-LLM_BASE_URL=https://api.openai.com/v1 LLM_API_KEY=sk-... LLM_MODEL=gpt-4o-mini node server/index.js
+cp config.example.json config.local.json
+```
+
+`config.local.json`（已被 `.gitignore` 忽略）：
+
+```json
+{
+  "host": "127.0.0.1",
+  "port": 3100,
+  "llm": {
+    "baseUrl": "https://api.deepseek.com/v1",
+    "apiKey": "sk-你的key",
+    "model": "deepseek-flash",
+    "temperature": 0.85,
+    "timeoutMs": 45000
+  }
+}
+```
+
+默认模型为 **deepseek-flash**，默认接口为 `https://api.deepseek.com/v1`。
+配置路径可用 `WUXIA_CONFIG=/path/to/config.json` 覆盖；相对路径（如 `dataDir`）按配置文件所在目录解析。
+
+### 2. 环境变量（优先级更高）
+
+```bash
+LLM_BASE_URL=https://api.deepseek.com/v1 LLM_API_KEY=sk-... LLM_MODEL=deepseek-flash node server/index.js
 LLM_BASE_URL=http://127.0.0.1:11434/v1 LLM_API_KEY=ollama LLM_MODEL=qwen2.5:14b node server/index.js
 ```
 
+优先级：**环境变量 > `config.local.json` > 内置默认值**。非法 JSON、`llm` 不是对象、端口越界都会在启动时给出明确错误或回落到合法默认值；日志只打印「已配置/未配置」，不打印密钥。
+
+### 3. 协议细节
+
 `server/narrators/llm.js` 的请求体包含 `response_format: { type: "json_object" }`；若你的服务不支持，可删掉该字段，
-守卫仍会从文本中提取第一个 JSON 对象。超时默认 45 秒，可用 `LLM_TIMEOUT_MS` 调整。
+守卫仍会从文本中提取第一个 JSON 对象。超时默认 45 秒，可用 `timeoutMs` / `LLM_TIMEOUT_MS` 调整。
+`GET /api/health` 会报告当前模型与配置文件来源，便于确认密钥是否生效。
 
 ## 六、离线叙述者
 
@@ -73,6 +105,7 @@ LLM_BASE_URL=http://127.0.0.1:11434/v1 LLM_API_KEY=ollama LLM_MODEL=qwen2.5:14b 
 ## 七、测试怎么证明这些
 
 - `test/guard.test.js`：现代词、虚构典籍、提前泄露、选项数量、离线叙述合法性。
+- `test/config.test.js`：配置文件读取、环境变量优先级、默认 deepseek-flash、非法配置报错、密钥不出现在诊断信息里。
 - `test/engine.test.js`：同种子同选择完全一致；24 个主线事件按点到齐；终局落成结局；数值无 NaN。
 - `test/docs.test.js`：`docs/*.md` 与 `canon/*.json` 完全一致，防止设定文档与实现脱节。
 - `test/server.test.js`：开局、行动、存读档、错误处理、目录穿越防护。

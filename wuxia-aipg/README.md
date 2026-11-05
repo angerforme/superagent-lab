@@ -28,23 +28,49 @@ node server/index.js          # 打开 http://127.0.0.1:3100
 零依赖、零构建：前端是原生 ES Module + Canvas 水墨场景，后端只用 Node 内置模块。
 未配置大模型时，由内置的「离线叙述者」执笔，游戏照样能从头玩到尾。
 
-接入任意 OpenAI 兼容接口（DeepSeek、通义、Kimi、vLLM、Ollama 的 `/v1` 均可）：
+### 用配置文件填 API Key（推荐）
+
+```bash
+cd wuxia-aipg
+cp config.example.json config.local.json   # config.local.json 已在 .gitignore 中
+# 编辑 config.local.json，把 llm.apiKey 换成你的 key
+node server/index.js
+```
+
+默认配置指向 DeepSeek，默认模型是 **deepseek-flash**：
+
+```json
+{
+  "llm": {
+    "baseUrl": "https://api.deepseek.com/v1",
+    "apiKey": "sk-你的key",
+    "model": "deepseek-flash"
+  }
+}
+```
+
+- 配置文件路径固定为 `wuxia-aipg/config.local.json`，也可用 `WUXIA_CONFIG=/path/to/config.json` 指定。
+- 换 OpenAI / 通义 / Kimi / vLLM / Ollama 时，改 `baseUrl` 与 `model` 即可（Ollama 用 `http://127.0.0.1:11434/v1`）。
+- 配置错误（非法 JSON、`llm` 不是对象）会直接报错，不会静默降级；密钥不会被日志打印。
+
+也可以不用配置文件，直接用环境变量（**环境变量优先级高于配置文件**）：
 
 ```bash
 LLM_BASE_URL=https://api.deepseek.com/v1 \
 LLM_API_KEY=sk-xxxx \
-LLM_MODEL=deepseek-chat \
+LLM_MODEL=deepseek-flash \
 node server/index.js
 ```
 
-| 环境变量 | 说明 | 默认 |
+| 配置项 | 环境变量 | 默认 |
 | --- | --- | --- |
-| `LLM_BASE_URL` | Chat Completions 兼容地址（不含 `/chat/completions`） | `https://api.openai.com/v1` |
-| `LLM_API_KEY` | 密钥；留空则使用离线叙述者 | 空 |
-| `LLM_MODEL` | 模型名 | `gpt-4o-mini` |
-| `LLM_TIMEOUT_MS` | 单次调用超时 | `45000` |
-| `WUXIA_PORT` / `WUXIA_HOST` | 监听地址 | `3100` / `127.0.0.1` |
-| `WUXIA_DATA_DIR` | 存档目录 | `./data` |
+| `llm.baseUrl` | `LLM_BASE_URL` / `OPENAI_BASE_URL` | `https://api.deepseek.com/v1` |
+| `llm.apiKey` | `LLM_API_KEY` / `OPENAI_API_KEY` | 空（离线叙述者） |
+| `llm.model` | `LLM_MODEL` | `deepseek-flash` |
+| `llm.timeoutMs` | `LLM_TIMEOUT_MS` | `45000` |
+| `llm.temperature` | `LLM_TEMPERATURE` | `0.85` |
+| `host` / `port` | `WUXIA_HOST` / `WUXIA_PORT` | `127.0.0.1` / `3100` |
+| `dataDir` | `WUXIA_DATA_DIR` | `./data` |
 
 ## 玩法
 
@@ -53,7 +79,7 @@ node server/index.js
 - 属性：根骨、悟性、福缘、心性、魅力；境界从凡体到天人共八重，突破要看内力与心境。
 - 江湖大事按固定年表发生（血月三现、试剑大会、镇武司清查、九兵现世、正魔大战、执剑人现身、九鼎开门），
   玩家不在场，事情也照常发生；在场则可以亲历、插手、留名，或死在其中。
-- 结局共 8 种：问天、天下第一、侠之大者、魔道至尊、执棋人、归隐、身死道消、无名之墓。
+- 结局共 9 种：问天、天下第一、侠之大者、魔道至尊、执棋人、归隐、天倾、身死道消、无名之墓。
 
 ## 固定设定与随机人生
 
@@ -102,6 +128,7 @@ wuxia-aipg/
 │   ├── storyline.json    # 五幕主线与 24 个固定事件
 │   ├── endings.json      # 结局与判定条件
 │   └── lifegen.json      # 姓名、出身、天赋、命格（随机人生用）
+├── config.example.json   # 配置模板（复制为 config.local.json 后填 key）
 ├── docs/                 # 设定文档（由 canon 生成）+ 玩法/叙事说明 + 截图
 ├── server/
 │   ├── canon.js          # 加载、索引、自检、对玩家隐藏暗线
@@ -124,7 +151,7 @@ wuxia-aipg/
 
 ```bash
 npm start            # 启动
-npm test             # 39 项测试：设定自检、确定性、主线、守卫、LLM 接入、API、文档一致性
+npm test             # 48 项测试：设定自检、确定性、主线、守卫、LLM 接入、配置优先级、API、文档一致性
 npm run docs         # 由 canon 重新生成设定文档
 npm run docs:check   # 校验文档与设定是否一致
 npm run test:play    # 走完一局并打印人生年表（离线叙述者）

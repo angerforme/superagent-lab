@@ -7,7 +7,13 @@ import { createApp } from "../server/server.js";
 import { loadConfig } from "../server/config.js";
 
 const dir = await mkdtemp(path.join(tmpdir(), "wuxia-test-"));
-const config = { ...loadConfig({}), dataDir: dir, port: 0 };
+const config = {
+  ...loadConfig({ WUXIA_CONFIG: path.join(dir, "absent.json") }),
+  dataDir: dir,
+  port: 0,
+  llm: { baseUrl: "", apiKey: "", model: "", temperature: 0.85, timeoutMs: 1000 },
+  configFile: null
+};
 const { server, store } = await createApp(config);
 await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
 const base = `http://127.0.0.1:${server.address().port}`;

@@ -37,7 +37,7 @@ export async function createApp(config = loadConfig()) {
     const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
     try {
       if (url.pathname.startsWith("/api/")) {
-        await handleApi({ req, res, url, canon, engine, store, narrator });
+        await handleApi({ req, res, url, canon, engine, store, narrator, config });
         return;
       }
       await serveStatic({ req, res, url, webDir: config.webDir });
@@ -50,7 +50,7 @@ export async function createApp(config = loadConfig()) {
   return { server, canon, engine, store, narrator, config };
 }
 
-async function handleApi({ req, res, url, canon, engine, store, narrator }) {
+async function handleApi({ req, res, url, canon, engine, store, narrator, config }) {
   const parts = url.pathname
     .replace(/^\/api\/?/, "")
     .split("/")
@@ -69,6 +69,8 @@ async function handleApi({ req, res, url, canon, engine, store, narrator }) {
       ok: true,
       canon: { ok: canon.integrity.ok, errors: canon.integrity.errors },
       narrator: narrator.describe(),
+      model: config.llm.model,
+      configFile: config.configFile ? path.basename(config.configFile) : null,
       llm: narrator.available,
       writer: "大衍江湖",
       turns: canon.world.rules.maxTurns

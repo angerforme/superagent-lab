@@ -1,4 +1,6 @@
 node_modules/
 data/
+config.local.json
+config.json
 *.log
 .DS_Store
