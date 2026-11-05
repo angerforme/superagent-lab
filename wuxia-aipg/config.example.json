@@ -1,0 +1,11 @@
+{
+  "host": "127.0.0.1",
+  "port": 3100,
+  "llm": {
+    "baseUrl": "https://api.deepseek.com/v1",
+    "apiKey": "sk-在这里填你的-key",
+    "model": "deepseek-flash",
+    "temperature": 0.85,
+    "timeoutMs": 45000
+  }
+}

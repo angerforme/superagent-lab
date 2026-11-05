@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>大衍江湖 · 一剑一生</title>
+  <meta name="description" content="LLM 驱动的武侠人生模拟：每一局都是新的人生，门派、武学、神兵与主线由设定文档固定。" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2315171d'/%3E%3Cpath d='M6 26 L26 6 M12 6 h14 v14' stroke='%23c8a96a' stroke-width='2' fill='none'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <section id="start" class="start">
+    <div class="start-inner">
+      <p class="eyebrow">承平二十三年 · 春</p>
+      <h1 class="title">大衍江湖</h1>
+      <p class="tagline">血月三现，九兵认主，九鼎易主。</p>
+      <p class="intro">每一局都是新的人生：姓名、出身、天赋、命格由天定。<br />而九宗、武学、神兵、人物与那场大衍之局，早已写在设定里。</p>
+
+      <div class="life-card" id="lifeCard" aria-live="polite">
+        <div class="life-card-head">
+          <span class="seal" id="lifeSeal">命</span>
+          <div>
+            <h2 id="lifeName">推演中……</h2>
+            <p id="lifeTitle">请稍候</p>
+          </div>
+        </div>
+        <div class="life-grid" id="lifeGrid"></div>
+        <p class="life-seed" id="lifeSeed"></p>
+      </div>
+
+      <div class="start-actions">
+        <button id="reroll" class="btn ghost" type="button">另投一胎</button>
+        <label class="seed-field">
+          <span>命数种子</span>
+          <input id="seedInput" type="number" min="0" max="4294967295" placeholder="留空则由天定" />
+        </label>
+        <button id="startBtn" class="btn primary" type="button" disabled>以此身入江湖</button>
+      </div>
+      <p class="fineprint">无需账号 · 存档在本地 · 在 <code>config.local.json</code> 或环境变量中配置 API Key（默认模型 deepseek-flash，未配置时由内置叙述者执笔）</p>
+    </div>
+    <footer class="start-footer">
+      <button class="link" id="codexBtnStart" type="button">翻阅江湖典籍</button>
+      <span class="dot">·</span>
+      <span id="narratorTag">叙述者：离线</span>
+    </footer>
+  </section>
+
+  <main id="game" class="game hidden">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">衍</span>
+        <div>
+          <strong>大衍江湖</strong>
+          <span id="eraLabel">承平二十三年·春</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <span class="chip" id="narratorChip">离线叙述者</span>
+        <button class="btn small" id="codexBtn" type="button">典籍</button>
+        <button class="btn small" id="saveBtn" type="button">存档</button>
+        <button class="btn small" id="loadBtn" type="button">读档</button>
+        <button class="btn small ghost" id="quitBtn" type="button">重开</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="panel panel-left">
+        <div class="portrait" aria-hidden="true">
+          <canvas id="portrait" width="220" height="150"></canvas>
+          <div class="portrait-name">
+            <strong id="charName">—</strong>
+            <span id="charTitle">—</span>
+          </div>
+        </div>
+        <div class="realm-block">
+          <div class="realm-row">
+            <span class="realm-name" id="realmName">凡体</span>
+            <span class="realm-next" id="realmNext">下一境：三流</span>
+          </div>
+          <div class="bar"><i id="realmBar" style="width:0%"></i></div>
+        </div>
+        <div class="stats" id="stats"></div>
+        <div class="attrs" id="attrs"></div>
+        <div class="resource-grid" id="resources"></div>
+        <div class="bio" id="bio"></div>
+        <h3 class="panel-title">武学</h3>
+        <ul class="art-list" id="artList"></ul>
+        <h3 class="panel-title">神兵</h3>
+        <ul class="weapon-list" id="weaponList"></ul>
+      </aside>
+
+      <section class="stage">
+        <div class="scene-wrap">
+          <canvas id="scene" aria-label="江湖景象"></canvas>
+          <div class="scene-overlay"></div>
+          <div class="scene-head">
+            <p class="scene-act" id="sceneAct">第一幕·江湖初入</p>
+            <h2 id="sceneTitle">江湖路远</h2>
+            <p class="scene-sub" id="sceneSubtitle"></p>
+          </div>
+          <div class="scene-weather" id="weatherTag"></div>
+        </div>
+
+        <div class="scroll-area" id="scrollArea">
+          <article class="prose" id="prose" aria-live="polite"></article>
+          <div class="options" id="options" role="group" aria-label="本回合选择"></div>
+          <p class="hintline" id="hintline">点击选项，或按 1–4 键。</p>
+        </div>
+      </section>
+
+      <aside class="panel panel-right">
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-tab="events" type="button">纪要</button>
+          <button class="tab" data-tab="people" type="button">人物</button>
+          <button class="tab" data-tab="clues" type="button">线索</button>
+        </div>
+        <div class="tab-body" id="tabEvents"></div>
+        <div class="tab-body hidden" id="tabPeople"></div>
+        <div class="tab-body hidden" id="tabClues"></div>
+      </aside>
+    </div>
+  </main>
+
+  <div class="modal hidden" id="codexModal" role="dialog" aria-modal="true" aria-labelledby="codexTitle">
+    <div class="modal-card codex">
+      <header class="modal-head">
+        <h2 id="codexTitle">江湖典籍</h2>
+        <button class="btn small ghost" data-close type="button">合上</button>
+      </header>
+      <nav class="codex-tabs" id="codexTabs"></nav>
+      <div class="codex-body" id="codexBody"></div>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="saveModal" role="dialog" aria-modal="true" aria-labelledby="saveTitle">
+    <div class="modal-card">
+      <header class="modal-head">
+        <h2 id="saveTitle">存档</h2>
+        <button class="btn small ghost" data-close type="button">关闭</button>
+      </header>
+      <div class="save-body">
+        <div class="save-new">
+          <input id="slotName" placeholder="存档名（可留空）" maxlength="24" />
+          <button class="btn primary small" id="confirmSave" type="button">写入存档</button>
+        </div>
+        <ul class="save-list" id="saveList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="ending hidden" id="endingScreen">
+    <div class="ending-card">
+      <p class="eyebrow" id="endingKicker">终局</p>
+      <h2 id="endingName">—</h2>
+      <p class="ending-desc" id="endingDesc"></p>
+      <p class="ending-epitaph" id="endingEpitaph"></p>
+      <div class="ending-actions">
+        <button class="btn primary" id="newLifeBtn" type="button">再入江湖</button>
+        <button class="btn ghost" id="endingCodexBtn" type="button">看看这个江湖</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast" role="status"></div>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

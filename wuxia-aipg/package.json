@@ -1,0 +1,29 @@
+{
+  "name": "dayan-jianghu",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "大衍江湖：LLM 驱动的武侠人生模拟网页游戏。每一局都是新的人生，门派、武学、神兵、人物与主线由设定文档固定。",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test test/*.test.js",
+    "test:play": "node scripts/playthrough.mjs",
+    "docs": "node scripts/build-docs.mjs",
+    "docs:check": "node scripts/build-docs.mjs --check",
+    "shot": "node scripts/screenshot.mjs"
+  },
+  "keywords": [
+    "wuxia",
+    "llm",
+    "game",
+    "text-rpg"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "playwright": "^1.49.1"
+  }
+}
